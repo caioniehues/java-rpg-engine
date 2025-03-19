@@ -44,7 +44,7 @@ public class OracleService {
     public Map<String, Integer> getOracleInfo() {
         Map<String, Integer> info = new HashMap<>();
         for (Oracle oracle : oracles.values()) {
-            info.put(oracle.getName(), oracle.getEntryCount());
+            info.put(oracle.getName(), oracle.getResultsCount());
         }
         return info;
     }

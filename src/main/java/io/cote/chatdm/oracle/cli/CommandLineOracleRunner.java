@@ -77,7 +77,7 @@ public class CommandLineOracleRunner implements CommandLineRunner {
         else {
             Oracle oracle = oracleService.getOracle(oracleName);
             System.out.println("Result from '" + oracleName + "':");
-            System.out.println("  " + oracle.getRandomEntry());
+            System.out.println("  " + oracle.getRandomResult());
         }
     }
 }

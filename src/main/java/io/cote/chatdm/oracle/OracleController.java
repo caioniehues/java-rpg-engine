@@ -21,11 +21,6 @@ public class OracleController {
         this.oracleService = oracleService;
     }
 
-    @GetMapping("/ping")
-    public String ping() {
-        return "Here is the Oracle controller.";
-    }
-
     /**
      * Gets all oracle names.
      */
@@ -43,6 +38,7 @@ public class OracleController {
         return ResponseEntity.ok(oracleService.getOracleInfo());
     }
 
+
     /**
      * Gets a random entry from the specified oracle.
      */
@@ -57,7 +53,8 @@ public class OracleController {
         else {
             Map<String, String> response = new LinkedHashMap<>();
             response.put("oracle", oracle.getName());
-            response.put("entry", oracle.getRandomEntry());
+            response.put("description", oracle.getDescription());
+            response.put("result", oracle.getRandomResult());
             return ResponseEntity.ok(response);
         }
     }

@@ -1,0 +1,43 @@
+# NPC Motivations Oracle
+# This oracle helps determine what motivates an NPC
+
+# Metadata section
+metadata:
+  name: "PUM_Modified_Proposal"
+  description: > 
+    Use modified proposals when the situation shifts unexpectedly.
+    The adventure may suggest one outcome, but you decide it needs a turn.
+    The player may have a clear intention, but something interferes.
+    Take that original player intention and deliberately twist it.
+    If they expected things to go smoothly, inject tension or complication.
+    For example: returning to a safe location reveals prying eyes;
+    a clever plan succeeds but attracts unwanted attention;
+    or a helpful NPC suddenly becomes distracted by bad news.
+    Other examples: a locked door proves harder than expected;
+    an enemy retreats but leaves a trap;
+    supplies spoil en route;
+    a hidden ally turns reluctant;
+    a simple errand becomes urgent;
+    the weather worsens at a critical moment;
+    a rival makes the first move;
+    expected loot is cursed or damaged;
+    someone misinterprets the party’s actions;
+    or a bystander unexpectedly gets involved.
+    The goal is to keep the story dynamic and surprising.
+  author: "Plot Unfolding Machine, v8, JeansenVaars"
+  source: "https://github.com/saif-ellafi/play-by-the-writing/blob/main/tables/pum_proposal.txt"
+  version: 1.0
+  category: "Plot"
+
+# Entries section - each item is a possible oracle result
+entries:
+- "Increase intensity, tension, drama"
+- "Bring someone quite inconvenient"
+- "Deal with unexpected bad news"
+- "Make the location less favorable"
+- "Provoke frustration, stress, worry"
+- "Cause confusion, doubt, question"
+- "Make the location more favorable"
+- "Introduce welcoming good news"
+- "Bring someone quite convenient"
+- "Decrease intensity, tension, drama"

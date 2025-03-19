@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "spring-project-information": {
+      "command": "java",
+      "args": [
+        "-Dlogging.file.name=/Users/pcorby/Desktop/spring-io.webmvc.log",
+        "-jar",
+        "/Users/pcorby/Projects/OpenAI/spring-io-api-mcp/target/spring-io-api-mcp-0.0.1-SNAPSHOT.jar",
+        "--server.port=8042"
+      ]
+    }
+  }

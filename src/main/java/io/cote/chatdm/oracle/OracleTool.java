@@ -12,6 +12,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
+/**
+ * A generic tool for an Oracle, a random table of words, events, etc. Oracles are filled with the content, name, and description of yaml files.
+ */
 public class OracleTool {
 
     private static final Logger logger = LoggerFactory.getLogger(OracleTool.class);
@@ -37,7 +40,9 @@ public class OracleTool {
         }
     }
 
-    @Tool(description = "Get a list of Oracle available, listing the name of the Oracle and how they could be used.")
+    @Tool(description = """
+        When playing a role playing game, like D&D, it is useful to have Oracles to randomly determine what happens and come up with ideas. This tool gets a list of the oracle available, listing the name of the Oracle and how they could be used. Oracles in solo D&D serve as randomized decision-making tools that replace a human Dungeon Master, allowing lone players to experience unpredictable gameplay. They generate impartial responses to player questions, create emergent storytelling by introducing unexpected elements, fill in world details like NPC motivations or location features, make objective rulings on action success, and maintain game balance through complications or twists. Ranging from simple yes/no probability tools to complex tables and random event generators, oracles provide the genuine surprise and challenge typically supplied by another person. By consulting these systems at key decision points, solo players can avoid predetermined outcomes and experience a dynamic narrative that unfolds organically rather than following a scripted path they'd consciously or unconsciously create themselves.
+        """)
     public String listOracles() {
         Map<String,String> oracles = new HashMap<>();
         oracleService.getOracleNames().forEach(name -> oracles.put(name, oracleService.getOracle(name).getDescription()));

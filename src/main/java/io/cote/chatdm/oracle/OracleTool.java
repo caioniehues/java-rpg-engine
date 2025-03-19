@@ -12,13 +12,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class AgenticTool {
+public class OracleTool {
 
-    private static final Logger logger = LoggerFactory.getLogger(AgenticTool.class);
+    private static final Logger logger = LoggerFactory.getLogger(OracleTool.class);
 
     private final OracleService oracleService;
 
-    public AgenticTool(OracleService oracleService) {
+    public OracleTool(OracleService oracleService) {
         this.oracleService = oracleService;
     }
 

@@ -1,11 +1,11 @@
 {
   "mcpServers": {
-    "spring-project-information": {
+    "chatdm": {
       "command": "java",
       "args": [
-        "-Dlogging.file.name=/Users/pcorby/Desktop/spring-io.webmvc.log",
+        "-Dlogging.file.name=/Users/cote/Desktop/chatdm.log",
         "-jar",
-        "/Users/pcorby/Projects/OpenAI/spring-io-api-mcp/target/spring-io-api-mcp-0.0.1-SNAPSHOT.jar",
+        "/Users/cote/projects/chatdm/target/chatdm-0.0.1-SNAPSHOT.jar",
         "--server.port=8042"
       ]
     }

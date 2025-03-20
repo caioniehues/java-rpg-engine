@@ -1,12 +1,12 @@
 package io.cote.chatdm.dnd;
 
-import io.cote.chatdm.oracle.OracleService;
-import io.cote.chatdm.oracle.OracleTool;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +30,7 @@ public class PlayDnDTool {
     public void writeDMJournalEntry(String journalText) {
         // TK this needs a service to go into a DB and a dated markdown file.
         logger.info("DM Journal entry:\n{}", journalText);
-        journalEntries.add(journalText);
+        journalEntries.add(LocalDateTime.now().toString()+"\n\n"+journalText+"\n\n");
     }
 
     @Tool(description = "Used to get entries from the Dungeon Master (DM) journal. These are notes the DM wanted to keep for later and may want to refer back to as they are crafting the adventure. Journal entries are not always for players eyes and are often for DM's eyes only.")

@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "chatdm": {
+      "command": "java",
+      "args":
+      [
+        "-jar",
+        "/Users/cote/projects/chatdm/target/chatdm-0.0.1-SNAPSHOT.jar"
+      ]
+    }
+  }
+}

@@ -1,3 +1,7 @@
+# March 20, 2025
+
+- Is [this](https://github.com/davidteren/claude-server/blob/main/docs/CLAUDE_DESKTOP_INTEGRATION.md) the format for claude_desktop_config.json?
+
 # March 19, 2025
 
 - Want to covert the Oracle to a Record. I think this makes loading it a lot easier to load the yaml and also write 

@@ -2,6 +2,8 @@ package io.cote.chatdm;
 
 import io.cote.chatdm.dnd.PlayDnDTool;
 import io.cote.chatdm.oracle.OracleTool;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.ai.tool.ToolCallback;
 import org.springframework.ai.tool.ToolCallbacks;
 import org.springframework.boot.SpringApplication;
@@ -15,7 +17,10 @@ import java.util.List;
 @SpringBootApplication
 public class ChatDmApplication {
 
+	private static final Logger logger = LoggerFactory.getLogger(ChatDmApplication.class);
+
 	public static void main(String[] args) {
+		logger.info("Starting ChatDM...");
 		SpringApplication.run(ChatDmApplication.class, args);
 	}
 

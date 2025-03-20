@@ -20,8 +20,10 @@ import java.util.stream.Stream;
  */
 public class OracleReader {
     private static final Logger logger = LoggerFactory.getLogger(OracleReader.class);
+    // TK need to make sure all of this file name stuff is case-insensitive
     private static final String ORACLE_DIR = "oracle";
     private static final String FILE_PREFIX = "chatdm.oracle.";
+    // TK need to allow for .yaml files as well.
     private static final String FILE_EXTENSION = ".yml";
 
     private final ResourcePatternResolver resourceResolver = new PathMatchingResourcePatternResolver();

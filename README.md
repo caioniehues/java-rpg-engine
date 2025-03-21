@@ -1,5 +1,7 @@
 This is a collection of Model Context Controller tools, prompts, etc. for playing Dungeons and Dragons. They are implemented in Spring AI.
 
+I [play solo D&D with various AIs](https://cote.io/2024/04/09/how-to-use.html), for about two years now. There is a lot of manual work you need to do: meatsack agentic AI. MCP is a nice way to add those tools in and let the AI handle it.
+
 # Tools, etc.
 
 Currently, there are:

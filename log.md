@@ -1,3 +1,13 @@
+# March 21st, 2025
+
+- Re-arranged package structure into more Spring Boot like way.
+- Setup config class.
+- Moving things to Repository-ies.
+- Next: Need to re-implement the file way of getting files and use that in the DM Journal and as a way to load Oracles.
+- Next: Need some way of loading adventures?
+- Next: more oracles.
+- Next: can I do some RAG stuff?
+
 # March 20, 2025
 
 - TK the way yaml files are read in OracleReader and associated stuff seems like a mess. There must be a Spring Boot 

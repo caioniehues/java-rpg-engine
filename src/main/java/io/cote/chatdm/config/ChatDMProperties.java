@@ -1,5 +1,6 @@
-package io.cote.chatdm;
+package io.cote.chatdm.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -8,6 +9,8 @@ import java.nio.file.Path;
 @Component
 @ConfigurationProperties(prefix = "chatdm")
 public class ChatDMProperties {
+
+    @Value("${chatdm.dir:${user.home}/.chatdm}")
     private String dir;
 
     public String getDir() {
@@ -18,13 +21,7 @@ public class ChatDMProperties {
         this.dir = dir;
     }
 
-    /**
-     * Returns the ChatDM directory. By defaults, this is <code>~/.chatdm</code>,
-     * but it can be customized with the <code>chatdm.dir</code> system property.
-     *
-     * @return the Path, will always be non-null, defaulting to <code>~/.chatdm</code>.
-     */
     public Path getDirPath() {
-        return Path.of(dir != null ? dir : System.getProperty("user.home") + "/.chatdm");
+        return Path.of(dir);
     }
 }

@@ -2,7 +2,7 @@ package io.cote.chatdm;
 
 import io.cote.chatdm.dnd.PlayDnDTool;
 import io.cote.chatdm.journal.DMJournalTool;
-import io.cote.chatdm.oracle.OracleTool;
+import io.cote.chatdm.oracle.tool.OracleTool;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ai.tool.ToolCallback;
@@ -22,6 +22,11 @@ public class ChatDmApplication {
         logger.info("Starting ChatDM...");
         SpringApplication.run(ChatDmApplication.class, args);
     }
+
+    //
+    // MCP tool loading.
+    // TK seems like this could be done in a properties file?
+    //
 
     @Bean
     public List<ToolCallback> registerOracles(OracleTool oracleTool) {

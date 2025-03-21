@@ -1,8 +1,8 @@
 package io.cote.chatdm;
 
+import io.cote.chatdm.config.ChatDMProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
@@ -11,7 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 /**
- * Setups ip initial home directory or other stores for the ChatDM.
+ * Setups up initial home directory or other stores for the ChatDM.
  */
 @Component
 public class ChatDMInit implements ApplicationRunner {
@@ -23,20 +23,18 @@ public class ChatDMInit implements ApplicationRunner {
         this.properties = properties;
     }
 
-    @Value("${chatdm.dir:#{systemProperties['user.home'] + '/.chatdm'}}")
-    private String chatDMDirProperty;
-    private Path chatDMDir;
-
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        Path dir = Path.of(chatDMDirProperty);
+        Path dir = properties.getDirPath();
         if (!Files.exists(dir)) {
             Files.createDirectories(dir);
-            logger.debug("Created .chatdm directory: {}", dir);
+            logger.info("Created .chatdm directory: {}", dir);
             // Write default files here
         }
+        else {
+            logger.info(".chatdm directory already exists: {}", dir);
+        }
         properties.setDir(dir.toString());
-        this.chatDMDir = dir;
-        logger.debug(".chatdm directory set to: {}", dir);
+        logger.info(".chatdm directory set to: {}", dir);
     }
 }

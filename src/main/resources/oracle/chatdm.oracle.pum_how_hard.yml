@@ -2,7 +2,7 @@
 # This oracle helps determine the difficulty level of a given action or situation
 
 metadata:
-  name: "How_Hard"
+  name: "PUM_How_Hard"
   description: "Use this oracle to randomly determine how difficult a task is."
   author: "ChatGPT"
   version: 1.0

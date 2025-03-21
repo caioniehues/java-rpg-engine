@@ -47,7 +47,7 @@ public record Oracle(String name, Map<String, String> metadata, List<String> res
      * @param oracle The oracle to pick from
      * @return A randomly selected result or a fallback message if empty
      */
-    public static String pickRandom(Oracle oracle) {
+    public static String randomResult(Oracle oracle) {
         if (oracle.results.isEmpty()) {
             return "No results available.";
         }

@@ -1,6 +1,7 @@
 # March 20, 2025
 
-- Is [this](https://github.com/davidteren/claude-server/blob/main/docs/CLAUDE_DESKTOP_INTEGRATION.md) the format for claude_desktop_config.json?
+- TK the way yaml files are read in OracleReader and associated stuff seems like a mess. There must be a Spring Boot 
+  like way to do it. Also, I'd like to give it the option to read from databases or whatever else.
 
 # March 19, 2025
 

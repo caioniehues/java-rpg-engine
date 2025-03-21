@@ -11,10 +11,12 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.Map;
 
-@Service
+
 /**
- * A generic tool for an Oracle, a random table of words, events, etc. Oracles are filled with the content, name, and description of yaml files.
+ * A generic tool for an Oracle, a random table of words, events, etc.
+ * Oracles are filled with the content, name, and description of yaml files.
  */
+@Service
 public class OracleTool {
 
     private static final Logger logger = LoggerFactory.getLogger(OracleTool.class);
@@ -31,7 +33,7 @@ public class OracleTool {
     public String oracle(@ToolParam(description = ORACLE_DESCRIPTION) String oracleName) throws JsonProcessingException {
         if (oracleService.hasOracle(oracleName)) {
             Oracle oracle = oracleService.getOracle(oracleName);
-            Map<String, Object> jsonMap = Map.of("name", oracle.getName(), "description", oracle.getDescription(), "result", oracle.getRandomResult());
+            Map<String, Object> jsonMap = Map.of("name", oracle.name(), "description", oracle.description(), "result", Oracle.pickRandom(oracle));
             ObjectMapper mapper = new ObjectMapper();
             String jsonString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonMap);
             return jsonString;
@@ -45,7 +47,7 @@ public class OracleTool {
         """)
     public String listOracles() {
         Map<String,String> oracles = new HashMap<>();
-        oracleService.getOracleNames().forEach(name -> oracles.put(name, oracleService.getOracle(name).getDescription()));
+        oracleService.getOracleNames().forEach(name -> oracles.put(name, oracleService.getOracle(name).description()));
         try {
             ObjectMapper mapper = new ObjectMapper();
             String jsonString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(oracles);

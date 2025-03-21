@@ -18,6 +18,12 @@ public class ChatDMProperties {
         this.dir = dir;
     }
 
+    /**
+     * Returns the ChatDM directory. By defaults, this is <code>~/.chatdm</code>,
+     * but it can be customized with the <code>chatdm.dir</code> system property.
+     *
+     * @return the Path, will always be non-null, defaulting to <code>~/.chatdm</code>.
+     */
     public Path getDirPath() {
         return Path.of(dir != null ? dir : System.getProperty("user.home") + "/.chatdm");
     }

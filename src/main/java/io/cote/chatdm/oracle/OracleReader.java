@@ -44,7 +44,7 @@ public class OracleReader {
             for (Resource resource : resources) {
                 try (InputStream inputStream = resource.getInputStream()) {
                     Oracle oracle = parseOracleFile(resource.getFilename(), inputStream);
-                    oracles.put(oracle.getName(), oracle);
+                    oracles.put(oracle.name(), oracle);
                 } catch (Exception e) {
                     logger.error("Failed to parse oracle file: {}", resource.getFilename(), e);
                 }
@@ -59,15 +59,14 @@ public class OracleReader {
     /**
      * Loads all oracle files from a specified directory.
      *
-     * @param directoryPath The path to the directory containing oracle files
+     * @param directory The path to the directory containing oracle files
      * @return A map of oracle names to Oracle objects
      */
-    public Map<String, Oracle> loadFromDirectory(String directoryPath) {
+    public Map<String, Oracle> loadFromDirectory(Path directory) {
         Map<String, Oracle> oracles = new HashMap<>();
-        Path directory = Paths.get(directoryPath);
 
         if (!Files.isDirectory(directory)) {
-            logger.error("Path is not a directory: {}", directoryPath);
+            logger.error("Path is not a directory: {}", directory);
             return oracles;
         }
 
@@ -80,13 +79,13 @@ public class OracleReader {
                     .forEach(path -> {
                         try (InputStream inputStream = Files.newInputStream(path)) {
                             Oracle oracle = parseOracleFile(path.getFileName().toString(), inputStream);
-                            oracles.put(oracle.getName(), oracle);
+                            oracles.put(oracle.name(), oracle);
                         } catch (Exception e) {
                             logger.error("Failed to parse oracle file: {}", path.getFileName(), e);
                         }
                     });
         } catch (IOException e) {
-            logger.error("Error loading oracle files from directory: {}", directoryPath, e);
+            logger.error("Error loading oracle files from directory: {}", directory, e);
         }
 
         return oracles;

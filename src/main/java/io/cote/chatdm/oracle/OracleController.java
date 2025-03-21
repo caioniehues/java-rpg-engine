@@ -52,9 +52,9 @@ public class OracleController {
         }
         else {
             Map<String, String> response = new LinkedHashMap<>();
-            response.put("oracle", oracle.getName());
-            response.put("description", oracle.getDescription());
-            response.put("result", oracle.getRandomResult());
+            response.put("oracle", oracle.name());
+            response.put("description", oracle.description());
+            response.put("result", Oracle.pickRandom( oracle ));
             return ResponseEntity.ok(response);
         }
     }

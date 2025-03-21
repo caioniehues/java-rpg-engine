@@ -1,95 +1,56 @@
 package io.cote.chatdm.oracle;
 
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * A simplified Oracle class that stores a name and a list of entries. Provides functionality to get random entries from
- * the list.
+ * An Oracle record that stores a name, metadata, and a list of results. Provides methods to access metadata and
+ * descriptions. Random result selection is handled via a static method.
+ *
+ * @param name name for the Oracle
+ * @param metadata key/value metadata. Keys are arbitrary, but description is usually used.
+ * @param results these are the list of possible results that will be randomly picked each time the Oracle is consulted.
  */
-public class Oracle {
-    private final String name;
-    private final String description;
-    private final Map<String, String> metadata;
-    private final List<String> results;
-    private final Random random;
+public record Oracle(String name, Map<String, String> metadata, List<String> results) {
 
-    /**
-     * Creates a new Oracle with the given name and entries.
-     *
-     * @param name    The name of the oracle
-     * @param entries The list of possible results
-     */
-    public Oracle(String name, LinkedHashMap<String, String> metadata, List<String> results) {
-        this.name = name;
-        this.description = metadata.get("description");
-        this.metadata = metadata;
-        this.results = new ArrayList<>(results); // Create a defensive copy
-        this.random = new Random();
+    public Oracle {
+        Objects.requireNonNull(name, "Oracle must have a name.");
+        Objects.requireNonNull(metadata, "Oracle must have metadata. Use an empty map if there are no metadata.");
+        Objects.requireNonNull(results, "Oracle must have results. Use an empty list if there are no results.");
+        // Ensure metadata and results are immutable copies
+        metadata = Collections.unmodifiableMap(new LinkedHashMap<>(metadata));
+        results = Collections.unmodifiableList(new ArrayList<>(results));
     }
 
     /**
-     * Gets the name of this oracle.
+     * Returns the description of the oracle (pulled from metadata).
      *
-     * @return The oracle name
+     * @return The oracle description, or null if not present
      */
-    public String getName() {
-        return name;
+    public String description() {
+        return metadata("description");
     }
 
     /**
-     * Returns the value of one of the Oracle's metadata fields.
-     * <p>
-     * The metadata fields should have at least a name. All other fields are optional and arbitrary.
-     * <p>
-     * An example:
+     * Retrieves the value of the metadata with <code>name</code>, or null if there is no metadata by that name.
      *
-     * {@snippet lang = "yaml":
-     * metadata:
-     *   name: "NPC_Motivations"
-     *   description: "Use answers from this oracle to determine what drives an NPC's actions, their motivations"
-     *   author: "Claude"
-     *   version: 1.0
-     *   category: "NPCs"
-     *}
-     *
-     * @param name of metadata to get
-     * @return value of metadata or null if none.
+     * @param name name of metadata to attempt to retrieve
+     * @return value of the metadata, or null if there is no metadata or value.
      */
-    public String getMetadata(String name) {
+    public String metadata(String name) {
         return metadata.get(name);
     }
 
-    public Map getAllMetadata() {
-        return Collections.unmodifiableMap(new LinkedHashMap<>(metadata));
-    }
-
     /**
-     * Returns a description of the oracle that describes how it can be used
-     * @return the description, can be any length.
-     */
-    public String getDescription() {
-        return description;
-    }
-
-
-    /**
-     * Gets a random entry from this oracle.
+     * Picks a random result from the provided Oracle instance.
      *
-     * @return A randomly selected entry
+     * @param oracle The oracle to pick from
+     * @return A randomly selected result or a fallback message if empty
      */
-    public String getRandomResult() {
-        if (results.isEmpty()) {
+    public static String pickRandom(Oracle oracle) {
+        if (oracle.results.isEmpty()) {
             return "No results available.";
         }
-        return results.get(random.nextInt(results.size()));
-    }
-
-    /**
-     * Gets the number of results in this oracle.
-     *
-     * @return The number of results
-     */
-    public int getResultsCount() {
-        return results.size();
+        return oracle.results.get(ThreadLocalRandom.current().nextInt(oracle.results.size()));
     }
 }

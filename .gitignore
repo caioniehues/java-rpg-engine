@@ -31,3 +31,13 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Docker ###
+.docker/
+docker-compose.override.yml
+
+### Dev Container ###
+.devcontainer/devcontainer.env
+
+### macOS ###
+.DS_Store

@@ -21,7 +21,7 @@ public class ChatDMProperties {
         this.dir = dir;
     }
 
-    public Path getDirPath() {
+    public Path getChatDMDirPath() {
         return Path.of(dir);
     }
 }

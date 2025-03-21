@@ -8,34 +8,34 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Repository
-public class FileDMStoreRepository implements DMStoreRepository {
+public class FileDMStoreRepository {
 
     private final Path rootPath;
 
     // Inject ChatDMProperties into the constructor
     public FileDMStoreRepository(ChatDMProperties properties) {
-        this.rootPath = properties.getDirPath().toAbsolutePath();
+        this.rootPath = properties.getChatDMDirPath().toAbsolutePath();
     }
 
-
-    @Override
-    public InputStream loadResource(String name) throws IOException {
-        return Files.newInputStream(rootPath.resolve(name));
+    public File load(String fileName) throws IOException {
+        return rootPath.resolve(fileName).toFile();
     }
 
-    @Override
     public boolean exists(String name) {
         return Files.exists(rootPath.resolve(name));
     }
 
-    @Override
-    public void saveResource(String name, InputStream data) throws IOException {
+    public void append(String fileName, String content) {
+
+    }
+
+    public void save(String name, InputStream data) throws IOException {
         Path target = rootPath.resolve(name);
         Files.createDirectories(target.getParent());
         Files.copy(data, target, StandardCopyOption.REPLACE_EXISTING);
     }
 
-    @Override
+
     public List<String> listResources() {
         try (var files = Files.list(rootPath)) {
             return files.map(p -> p.getFileName().toString()).collect(Collectors.toList());

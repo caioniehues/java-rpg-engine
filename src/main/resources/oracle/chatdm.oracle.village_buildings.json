@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "name": "Village_Building_Types",
+    "description": "Use answers from this oracle to determine buildings commonly encountered in a village",
+    "type": "oracle",
+    "author": "ChatGPT",
+    "version": 1.0,
+    "category": "Locations"
+  },
+  "results": [
+    "Tavern or inn",
+    "Blacksmith's forge",
+    "General store",
+    "Shrine or small temple",
+    "Village hall or meeting house",
+    "Mill (water or wind)",
+    "Stable or livery",
+    "Healer's cottage or apothecary",
+    "Schoolhouse or scribe's office",
+    "Watchtower or guard post"
+  ]
+}

@@ -1,7 +1,7 @@
 package io.cote.chatdm;
 
 import io.cote.chatdm.dnd.PlayDnDTool;
-import io.cote.chatdm.journal.DMJournalTool;
+import io.cote.chatdm.oracle.tool.DMJournalTool;
 import io.cote.chatdm.oracle.tool.OracleTool;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +19,7 @@ public class ChatDmApplication {
     private static final Logger logger = LoggerFactory.getLogger(ChatDmApplication.class);
 
     public static void main(String[] args) {
-        logger.info("Starting ChatDM...");
+        logger.info("Starting ChatDM.");
         SpringApplication.run(ChatDmApplication.class, args);
     }
 

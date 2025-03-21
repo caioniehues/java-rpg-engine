@@ -25,7 +25,7 @@ public class ChatDMInit implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        Path dir = properties.getDirPath();
+        Path dir = properties.getChatDMDirPath();
         if (!Files.exists(dir)) {
             Files.createDirectories(dir);
             logger.info("Created .chatdm directory: {}", dir);

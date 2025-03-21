@@ -5,5 +5,5 @@ import java.util.List;
 public interface DMJournalRepository
 {
     void saveEntry(String entry);
-    List<String> readEntries();
+    List<String> findAllEntries();
 }

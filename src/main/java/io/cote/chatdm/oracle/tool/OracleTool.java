@@ -30,10 +30,11 @@ public class OracleTool {
     }
 
     @Tool(description = "Call a named Oracle which will return a JSON response with the name of the oracle, a description of how to use it, and the result of the oracle. Use the result as your inspiration for what happens next, how to describe something, etc.")
-    public String oracle(@ToolParam(description = "Name of oracle to be used.") String oracleName) throws JsonProcessingException {
+    public String oracle(@ToolParam(description = "Name of oracle to be used.") String oracleName,
+                         @ToolParam(description = "Relevant context, needs, or background for this request", required = false) String context) throws JsonProcessingException {
+        logger.info("oracle lookup with {} and context: {}", oracleName, context);
         if (oracleRepository.existsByName(oracleName)) {
             Oracle oracle = oracleRepository.findByName(oracleName);
-
             Map<String, Object> jsonMap = Map.of("name", oracle.name(), "description", oracle.description(), "result", Oracle.randomResult(oracle));
             ObjectMapper mapper = new ObjectMapper();
             return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonMap);

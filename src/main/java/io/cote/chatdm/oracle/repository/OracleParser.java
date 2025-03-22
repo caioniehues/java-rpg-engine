@@ -36,8 +36,8 @@ class OracleParser {
         }
 
         List<String> results = new ArrayList<>();
-        if (jsonContent != null && jsonContent.containsKey("entries")) {
-            for (Object result : (List<Object>) jsonContent.get("entries")) {
+        if (jsonContent != null && jsonContent.containsKey("results")) {
+            for (Object result : (List<Object>) jsonContent.get("results")) {
                 results.add(result.toString());
             }
         }

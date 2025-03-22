@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -19,14 +20,12 @@ public class DMJournalController {
     }
 
     @GetMapping("/read")
-    public String readDMJournal() {
-        List<String> entries = dmJournalRepository.findAllEntries();
-        return String.join("\n", entries);
-
+    public String readDMJournal() throws IOException {
+        return dmJournalRepository.entries();
     }
 
     @PostMapping("/append")
-    public void writeDMJournalEntry(String journalText) {
-        dmJournalRepository.saveEntry(journalText);
+    public void writeDMJournalEntry(String journalText) throws IOException {
+        dmJournalRepository.addEntry(journalText);
     }
 }

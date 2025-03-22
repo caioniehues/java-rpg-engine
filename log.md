@@ -1,3 +1,20 @@
+# Marsh 22nd, 2025
+
+- I want to make it so when new files are added or existing ones are modified the FileDMStoreRepository reloads them.
+  For example, if a new oracle file is put in there, it should be loaded for use. That feels like a little too much 
+  work now.
+- Redid  the files are loaded. It's pretty stupid right now and hard coded, but it works.
+- Need to fix the race condition of setting up chatdmDir. Do this by moving the bootstrapping of files into the file 
+  loader, lazy checking each of oracle, journal, etc. as needed. Putting it in the ApplicationRunner init thing 
+  isn't syncronized enough!
+
+Log files!
+
+Claude desktop keeps logs per MCP server here: ~/Library/Logs/Claude
+
+Stack traces and errors will show up. There's a lot mroe info than the main CLaide log.
+
+
 # March 21st, 2025
 
 - Re-arranged package structure into more Spring Boot like way.

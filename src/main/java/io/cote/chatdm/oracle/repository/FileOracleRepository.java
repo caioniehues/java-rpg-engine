@@ -40,18 +40,40 @@ public class FileOracleRepository implements OracleRepository {
             return;
         }
 
+
         try (Stream<Path> paths = Files.walk(oracleDir)) {
+            logger.info("Loading txt oracles from directory '{}'", oracleDir);
+            paths.filter(Files::isRegularFile) // Ensure we're working with files
+                    .filter(path -> path.getFileName().toString().matches(".*\\.txt$")) // Match the regex pattern
+                    .forEach(this::loadOracleSimpleTxt);  // Process each matching file
+        } catch (IOException e) {
+            logger.error("Error reading txt oracle files from directory '{}'", oracleDir, e);
+        }
+
+        // load json oracles
+        try (Stream<Path> paths = Files.walk(oracleDir)) {
+            logger.info("Loading json oracles from directory '{}'", oracleDir);
             paths.filter(Files::isRegularFile) // Ensure we're working with files
                     .filter(path -> path.getFileName().toString().matches("chatdm\\.oracle\\..*\\.json")) // Match the regex pattern
-                    .forEach(this::loadOracle);  // Process each matching file
+                    .forEach(this::loadOracleJson);  // Process each matching file
         } catch (IOException e) {
-            logger.error("Error reading oracle files from directory '{}'", oracleDir, e);
+            logger.error("Error reading json oracle files from directory '{}'", oracleDir, e);
+        }
+
+    }
+    private void loadOracleSimpleTxt(Path filePath) {
+        try (InputStream inputStream = Files.newInputStream(filePath)) {
+            Oracle oracle = parser.parseOracleTxtFile(filePath.getFileName().toString(), inputStream);
+            oracles.put(oracle.name(), oracle);
+            logger.debug("Loaded oracle '{}'", oracle.name());
+        } catch (IOException e) {
+            logger.error("Error reading oracle file '{}'", filePath.getFileName(), e);
         }
     }
 
-    private void loadOracle(Path filePath) {
+    private void loadOracleJson(Path filePath) {
         try (InputStream inputStream = Files.newInputStream(filePath)) {
-            Oracle oracle = parser.parseOracleFile(filePath.getFileName().toString(), inputStream);
+            Oracle oracle = parser.parseOracleJsonFile(filePath.getFileName().toString(), inputStream);
             oracles.put(oracle.name(), oracle);
             logger.debug("Loaded oracle '{}'", oracle.name());
         } catch (IOException e) {

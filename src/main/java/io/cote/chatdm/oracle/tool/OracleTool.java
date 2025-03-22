@@ -22,7 +22,6 @@ import java.util.Map;
 public class OracleTool {
 
     private static final Logger logger = LoggerFactory.getLogger(OracleTool.class);
-
     private final OracleRepository oracleRepository;
 
     public OracleTool(OracleRepository oracleRepository) {
@@ -30,9 +29,8 @@ public class OracleTool {
     }
 
     @Tool(description = "Call a named Oracle which will return a JSON response with the name of the oracle, a description of how to use it, and the result of the oracle. Use the result as your inspiration for what happens next, how to describe something, etc.")
-    public String oracle(@ToolParam(description = "Name of oracle to be used.") String oracleName,
-                         @ToolParam(description = "Relevant context, needs, or background for this request", required = false) String context) throws JsonProcessingException {
-        logger.info("oracle lookup with {} and context: {}", oracleName, context);
+    public String chatDM_oracle(@ToolParam(description = "Name of oracle to be used.") String oracleName,
+                         @ToolParam(description = Utils.CONTEXT_PARAM, required = false) String context) throws JsonProcessingException {
         if (oracleRepository.existsByName(oracleName)) {
             Oracle oracle = oracleRepository.findByName(oracleName);
             Map<String, Object> jsonMap = Map.of("name", oracle.name(), "description", oracle.description(), "result", Oracle.randomResult(oracle));
@@ -46,7 +44,7 @@ public class OracleTool {
     @Tool(description = """
             When playing a role playing game, like D&D, it is useful to have Oracles to randomly determine what happens and come up with ideas. This tool gets a list of the oracle available, listing the name of the Oracle and how they could be used. Oracles in solo D&D serve as randomized decision-making tools that replace a human Dungeon Master, allowing lone players to experience unpredictable gameplay. They generate impartial responses to player questions, create emergent storytelling by introducing unexpected elements, fill in world details like NPC motivations or location features, make objective rulings on action success, and maintain game balance through complications or twists. Ranging from simple yes/no probability tools to complex tables and random event generators, oracles provide the genuine surprise and challenge typically supplied by another person. By consulting these systems at key decision points, solo players can avoid predetermined outcomes and experience a dynamic narrative that unfolds organically rather than following a scripted path they'd consciously or unconsciously create themselves.
             """)
-    public String listOracles() {
+    public String chatDM_listOracles() {
         Map<String, String> oracles = new HashMap<>();
         oracleRepository.findAllNames().forEach(name -> oracles.put(name, oracleRepository.findByName(name).description()));
         try {

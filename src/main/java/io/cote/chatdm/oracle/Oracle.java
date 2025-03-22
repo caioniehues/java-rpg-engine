@@ -41,6 +41,7 @@ public record Oracle(String name, Map<String, String> metadata, List<String> res
         return metadata.get(name);
     }
 
+
     /**
      * Picks a random result from the provided Oracle instance.
      *
@@ -53,4 +54,11 @@ public record Oracle(String name, Map<String, String> metadata, List<String> res
         }
         return oracle.results.get(ThreadLocalRandom.current().nextInt(oracle.results.size()));
     }
+
+    /**
+     * Returns an empty Oracle
+     * @return
+     */
+    public static Oracle emptyOracle() {
+        return new Oracle("", Map.of(), List.of());}
 }

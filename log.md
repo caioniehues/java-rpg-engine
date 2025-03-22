@@ -1,5 +1,11 @@
 # Marsh 22nd, 2025
 
+- Good progress. Added the ability to read in simple oracles, must a result per line. This means I can bring in these:https://github.com/saif-ellafi/play-by-the-writing/tree/main/tables
+- Still feels like it's not doing enough. ALso, I think it's just reading the result back into the context window 
+  which fills it quickly. I'll need some way of breaking down big chunks of text.
+- **Next:** it should have an adventure writer where it comes up with a structured adventure and saves it to a file. It 
+  can then follow that instead of making it up along the way. Maybe it can have clear nodes to follow, could use my 
+  old one page adventure card prompt or something.
 - I want to make it so when new files are added or existing ones are modified the FileDMStoreRepository reloads them.
   For example, if a new oracle file is put in there, it should be loaded for use. That feels like a little too much 
   work now.

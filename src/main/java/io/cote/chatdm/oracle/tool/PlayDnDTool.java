@@ -1,4 +1,4 @@
-package io.cote.chatdm.dnd;
+package io.cote.chatdm.oracle.tool;
 
 
 import io.cote.chatdm.dmstore.FileDMStoreRepository;
@@ -27,7 +27,7 @@ public class PlayDnDTool {
     }
 
     @Tool(name = "Play_DnD", description = "When you start playing D&D, consult and follow these instructions before doing anything else. If there are no instructions, ask for instructions on how to play Dungeons and Dragons, offering three different styles.")
-    public String playDnD() throws IOException {
+    public String chatDM_playDnD() throws IOException {
         return Optional.of(dmStoreRepository.loadToString("prompts/dnd-init-prompt.txt")).orElse("");
     }
 

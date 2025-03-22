@@ -2,6 +2,7 @@ package io.cote.chatdm.oracle.controller;
 
 import io.cote.chatdm.oracle.Oracle;
 import io.cote.chatdm.oracle.repository.OracleRepository;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -50,7 +51,6 @@ public class OracleController {
      */
     @GetMapping("/{name}")
     public Oracle getOracle(@PathVariable String name) {
-
         return Optional.ofNullable(oracleRepository.findByName(name))
                 .orElseThrow(() -> new ResponseStatusException(
                         HttpStatus.NOT_FOUND, "Oracle not found: " + name

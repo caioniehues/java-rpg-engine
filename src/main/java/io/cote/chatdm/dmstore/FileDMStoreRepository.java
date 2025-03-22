@@ -9,7 +9,6 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.stereotype.Repository;
 
 import java.io.*;
-import java.net.URL;
 import java.nio.file.*;
 
 
@@ -140,8 +139,13 @@ public class FileDMStoreRepository {
                 // Create necessary directories
                 Files.createDirectories(destinationPath.getParent());
 
-                // Write the content from the InputStream into the destination file
-                Files.copy(inputStream, destinationPath, StandardCopyOption.REPLACE_EXISTING);
+                if (!Files.exists(destinationPath)) {
+                    // Write the contents from the InputStream into the destination file
+                    // Only write it out if it does not exist.
+                    // We want people to be able ot edit these files and keep using them, only
+                    // replacing them if they are not there.
+                    Files.copy(inputStream, destinationPath);
+                }
             } catch (IOException e) {
                 logger.error("Error copying default resource {} for bundle {}",
                         resource,

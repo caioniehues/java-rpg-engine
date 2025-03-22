@@ -4,8 +4,8 @@
       "command": "java",
       "args": [
         "-jar",
-        "-Dspring.profiles.active=mcp",
-        "/Users/cote/projects/chatdm/target/chatdm-0.0.1-SNAPSHOT.jar"
+        "/Users/cote/projects/chatdm/target/chatdm-0.0.1-SNAPSHOT.jar",
+        "--spring.profiles.active=mcp"
       ]
     }
   }

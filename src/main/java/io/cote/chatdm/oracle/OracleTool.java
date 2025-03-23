@@ -1,10 +1,8 @@
-package io.cote.chatdm.oracle.tool;
+package io.cote.chatdm.oracle;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.cote.chatdm.oracle.Oracle;
-import io.cote.chatdm.oracle.repository.OracleRepository;
-import io.cote.chatdm.utils.Utils;
+import io.cote.chatdm.utils.ChatDMUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ai.tool.annotation.Tool;
@@ -32,7 +30,7 @@ public class OracleTool {
     @Tool(  name="ChatDM_oracle",
             description = "Call a named Oracle which will return a JSON response with the name of the oracle, a description of how to use it, and the result of the oracle. Use the result as your inspiration for what happens next, how to describe something, etc.")
     public String oracle(@ToolParam(description = "Name of oracle to be used.") String oracleName,
-                         @ToolParam(description = Utils.CONTEXT_PARAM, required = false) String context) throws JsonProcessingException {
+                         @ToolParam(description = ChatDMUtils.CONTEXT_PARAM, required = false) String context) throws JsonProcessingException {
         if (oracleRepository.existsByName(oracleName)) {
 
             Oracle oracle = oracleRepository.findByName(oracleName);

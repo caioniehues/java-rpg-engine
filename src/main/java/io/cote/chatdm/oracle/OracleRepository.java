@@ -1,6 +1,4 @@
-package io.cote.chatdm.oracle.repository;
-
-import io.cote.chatdm.oracle.Oracle;
+package io.cote.chatdm.oracle;
 
 import java.util.List;
 import java.util.Set;

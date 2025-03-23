@@ -1,7 +1,6 @@
-package io.cote.chatdm.oracle.repository;
+package io.cote.chatdm.oracle;
 
 import io.cote.chatdm.dmstore.FileDMStoreRepository;
-import io.cote.chatdm.oracle.Oracle;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

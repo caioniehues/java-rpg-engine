@@ -1,6 +1,5 @@
-package io.cote.chatdm.oracle.repository;
+package io.cote.chatdm.oracle;
 
-import io.cote.chatdm.oracle.Oracle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;

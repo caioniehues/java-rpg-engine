@@ -1,4 +1,4 @@
-package io.cote.chatdm.dnd.tool.MCPPrompt;
+package io.cote.chatdm.dnd;
 
 import io.cote.chatdm.dmstore.FileDMStoreRepository;
 import io.modelcontextprotocol.server.McpServerFeatures;
@@ -20,13 +20,13 @@ import java.util.*;
  * cannot have spaces, unfortunitly.
  */
 @Component
-public class PlayDnDPrompt {
+public class PlayDnDMCPPrompt {
 
-    private static final Logger logger = LoggerFactory.getLogger(PlayDnDPrompt.class);
+    private static final Logger logger = LoggerFactory.getLogger(PlayDnDMCPPrompt.class);
 
     private final FileDMStoreRepository dmStoreRepository;
 
-    public PlayDnDPrompt(FileDMStoreRepository dmStoreRepository) {
+    public PlayDnDMCPPrompt(FileDMStoreRepository dmStoreRepository) {
         this.dmStoreRepository = dmStoreRepository;
     }
 

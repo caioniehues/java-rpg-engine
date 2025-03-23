@@ -1,8 +1,5 @@
-package io.cote.chatdm.oracle.controller;
+package io.cote.chatdm.oracle;
 
-import io.cote.chatdm.oracle.Oracle;
-import io.cote.chatdm.oracle.repository.OracleRepository;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

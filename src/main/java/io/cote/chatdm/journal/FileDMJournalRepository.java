@@ -9,12 +9,11 @@ import org.springframework.stereotype.Repository;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.time.ZonedDateTime;
-import java.util.List;
 import java.util.Optional;
 
+// TK should be refactored to use FileDMStore
 @Repository
 public class FileDMJournalRepository implements DMJournalRepository {
     private static final Logger logger = LoggerFactory.getLogger(FileDMJournalRepository.class);

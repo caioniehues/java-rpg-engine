@@ -1,5 +1,7 @@
 This is a collection of Model Context Controller tools, prompts, etc. for playing Dungeons and Dragons. They are implemented in Spring AI.
 
+These are for (1) helping me play D&D with AIs (Claude, for now), and (2) to re-learn Java, Spring, Spring AI, and Spring AI MCP. Thus, there are some experiments and gratuitous uses of frameworks. See [the log](https://github.com/cote/chatdm/blob/main/log.md) for my ongoing lab journal and notes.
+
 I [play solo D&D with various AIs](https://cote.io/2024/04/09/how-to-use.html), for about two years now. There is a lot of manual work you need to do: meatsack agentic AI. MCP is a nice way to add those tools in and let the AI handle it.
 
 # Tools, etc.
@@ -7,8 +9,9 @@ I [play solo D&D with various AIs](https://cote.io/2024/04/09/how-to-use.html), 
 Currently, there are:
 
 - [Oracles](https://github.com/cote/chatdm/tree/main/src/main/java/io/cote/chatdm/oracle) - these are tool wrappers around [YAML files](https://github.com/cote/chatdm/tree/main/src/main/resources/oracle) that can either be yes/no style solo RPG Oracles or the equivilent or random RPG tables. The Oracle service will find all the oracle YAML files in the classpath and elsewhere and auto-load them up, populating the MCP tool name, description, etc.
-- [DM Journal](https://github.com/cote/chatdm/blob/main/src/main/java/io/cote/chatdm/dnd/PlayDnDTool.java) - this is a tool that write out DM notes to a markdown file and also read them back in. The AI (MCP Client) uses these to keep a lot of things to remember _and_ remember them as needed.
-- [DM setup](https://github.com/cote/chatdm/blob/main/src/main/java/io/cote/chatdm/dnd/PlayDnDTool.java) - a tool used to iniatlize playing D&D. This is mostly to put in an initial prompt and point out there are other tools to use. 
+- [DM Journal](https://github.com/cote/chatdm/tree/main/src/main/java/io/cote/chatdm/journal) - this is a tool that write out DM notes to a markdown file and also read them back in. The AI (MCP Client) uses these to keep a lot of things to remember _and_ remember them as needed.
+- [DM setup](https://github.com/cote/chatdm/tree/main/src/main/java/io/cote/chatdm/dnd) - a tool used to iniatlize playing D&D. This is mostly to put in an initial prompt and point out there are other tools to use. 
+- [Dice Roller](https://github.com/cote/chatdm/tree/main/src/main/java/io/cote/chatdm/dice) - Tool to roll dice, backed by [Dice Notation Tools for Java](https://github.com/Bernardo-MG/dice-notation-java).
 
 (I have not written Java since 2005, so I have no idea what I'm doing with this fancy, new Spring Boot style.)
 

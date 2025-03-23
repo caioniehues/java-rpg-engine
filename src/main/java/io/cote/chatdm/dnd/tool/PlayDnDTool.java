@@ -1,4 +1,4 @@
-package io.cote.chatdm.oracle.tool;
+package io.cote.chatdm.dnd.tool;
 
 
 import io.cote.chatdm.dmstore.FileDMStoreRepository;

@@ -1,7 +1,7 @@
 package io.cote.chatdm;
 
-import io.cote.chatdm.oracle.tool.PlayDnDTool;
-import io.cote.chatdm.oracle.tool.DMJournalTool;
+import io.cote.chatdm.dnd.tool.PlayDnDTool;
+import io.cote.chatdm.journal.tool.DMJournalTool;
 import io.cote.chatdm.oracle.tool.OracleTool;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

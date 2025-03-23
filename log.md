@@ -1,6 +1,32 @@
-# Marsh 22nd, 2025
+# March 23rd, 2025
 
-- Good progress. Added the ability to read in simple oracles, must a result per line. This means I can bring in these:https://github.com/saif-ellafi/play-by-the-writing/tree/main/tables
+- I made an MCP resource (DMJournalResource), but Claude does not seem to call it automatically. I made a sync one, 
+  so maybe an async one has more interesting magic, like I can tell it to notifiy Claude (the MCP Client) that there 
+  are updates. As Claude implements it, an MCP Resource is interesting, but not for a file - I could just upload 
+  that myself. I suppose if it connected to a database (or other service), it would save me the trouble of fetching 
+  the document and converting it. I could attack to a D&D SRD store, or something, and have it retrieve the content. 
+  But if the content is just static...I'm not sure it's useful.
+- For now, retrieving the DM journal should be done with a tool so I don't have to use the clunky Claude interface.
+- I could just have both for an example.
+- Similarly, the MCP Prompt is not very useful in Claude - it just allows the user to pass in some fields. 
+- For this, I should make a promp of the init prompt that allows the user to pass in their player name.
+- The idea of MC Prompt is pretty good: you could do agentic workflows of step, step 2, etc. (Though, you could just 
+  build and retrieve those with a tool too...)...so you could say: here is how to create an adveture...or write a 
+  script...or whatever...
+- Once Claude does more with MCP Resource and Prompt, it'll be interesting.
+- That said - do the async ones do something interesting?
+- NEXT: clean-up and document more.
+- NEXT: how the hell do I test all of this?
+
+# March 22nd, 2025
+
+- An MCP "prompt" shows up as [an attachment (paper clip) in the Claude desktop](https://www.reddit.
+  com/r/ClaudeAI/comments/1h4eywn/mcp_is_amazing_but_i_am_still_struggling_to/). Nice of them to document that 
+  anywhere.
+- Of course, this is all single player, single adventure, story. You can only be playing one adventue, character, 
+  etc. I suppose you could swap chatdm directories out, actually...
+- Good progress. Added the ability to read in simple oracles, must a result per line. This means I can bring in 
+  [these](https://github.com/saif-ellafi/play-by-the-writing/tree/main/tables).
 - Still feels like it's not doing enough. ALso, I think it's just reading the result back into the context window 
   which fills it quickly. I'll need some way of breaking down big chunks of text.
 - **Next:** it should have an adventure writer where it comes up with a structured adventure and saves it to a file. It 
@@ -18,7 +44,7 @@ Log files!
 
 Claude desktop keeps logs per MCP server here: ~/Library/Logs/Claude
 
-Stack traces and errors will show up. There's a lot mroe info than the main CLaide log.
+Stack traces and errors will show up. There's a lot mroe info than the main Claude log.
 
 
 # March 21st, 2025

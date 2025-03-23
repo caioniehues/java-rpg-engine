@@ -40,7 +40,7 @@ public class FileDMJournalRepository implements DMJournalRepository {
      * error occurs, an empty string will be returned.
      *
      * @return all the journal entries in the first item in the List. If there are no entries, an empty list is
-     * returned.
+     * returned. If there are no entries, will return an empty {@link String}.
      */
     @Override
     public String entries() throws IOException {

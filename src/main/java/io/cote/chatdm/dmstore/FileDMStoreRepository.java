@@ -46,10 +46,13 @@ public class FileDMStoreRepository {
         }
 
 
+        // TK This should be done in a properties file with a list of defaults
+        // if not defined.
         logger.info("Creating and populating bundles with default files.");
         createAndPopulateBundle("oracle");
         createAndPopulateBundle("prompts");
         createAndPopulateBundle("journal");
+        createAndPopulateBundle("dc");
     }
 
     /**

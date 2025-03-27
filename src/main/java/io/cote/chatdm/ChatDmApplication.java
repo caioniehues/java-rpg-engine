@@ -1,5 +1,6 @@
 package io.cote.chatdm;
 
+import io.cote.chatdm.dc.DifficultyClassTool;
 import io.cote.chatdm.dice.DiceRollerTool;
 import io.cote.chatdm.dnd.PlayDnDTool;
 import io.cote.chatdm.journal.DMJournalTool;
@@ -27,7 +28,8 @@ public class ChatDmApplication {
 
     //
     // MCP tool loading.
-    // TK seems like this could be done in a properties file?
+    // TK seems like this could be done in a properties file
+    // where I list each tool I want to include.
     //
 
     @Bean
@@ -47,6 +49,11 @@ public class ChatDmApplication {
 
     @Bean
     public List<ToolCallback> registerDiceRoller(DiceRollerTool tool) {
+        return List.of(ToolCallbacks.from(tool));
+    }
+
+    @Bean
+    public List<ToolCallback> registerDifficultyCheck(DifficultyClassTool tool) {
         return List.of(ToolCallbacks.from(tool));
     }
 }

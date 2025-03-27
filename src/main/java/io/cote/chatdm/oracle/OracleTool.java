@@ -22,7 +22,6 @@ public class OracleTool {
 
     private static final Logger logger = LoggerFactory.getLogger(OracleTool.class);
     private final OracleRepository oracleRepository;
-
     public OracleTool(OracleRepository oracleRepository) {
         this.oracleRepository = oracleRepository;
     }

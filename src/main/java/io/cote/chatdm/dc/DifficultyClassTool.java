@@ -11,10 +11,6 @@ import org.springframework.stereotype.Service;
 import org.stringtemplate.v4.ST;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Optional;
 
 @Service
 public class DifficultyClassTool {

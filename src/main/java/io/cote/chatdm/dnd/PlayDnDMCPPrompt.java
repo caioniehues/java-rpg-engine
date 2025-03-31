@@ -17,7 +17,7 @@ import java.util.*;
  * MCP Prompts used to start the game.
  * <p>
  * You can use StringTemplates for the prompt text, passing in the arguments from the MCP Client. The argument names
- * cannot have spaces, unfortunitly.
+ * cannot have spaces, unfortunately.
  */
 @Component
 public class PlayDnDMCPPrompt {

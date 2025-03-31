@@ -1,3 +1,12 @@
+# March 31st, 2025
+
+- Upgraded to Spring AI MCP 0.8; upgraded to Spring Boot 3.4.4; upgraded to Java 24.
+- Still need to update some tool calls, I think. See [migration notes](https://github.
+  com/modelcontextprotocol/java-sdk/blob/main/migration-0.8.0.md).
+- NEXT: take advantage of the context that gets passed in from the tools?
+- Started working on a DM Journal Resource, but commented it out to figure out upgrade.
+- Did some clean-up of utils, added in a test for the Config to see how tess work.
+
 # March 23rd, 2025
 
 - I made an MCP resource (DMJournalResource), but Claude does not seem to call it automatically. I made a sync one, 

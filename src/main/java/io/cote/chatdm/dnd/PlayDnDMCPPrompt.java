@@ -5,7 +5,6 @@ import io.modelcontextprotocol.server.McpServerFeatures;
 import io.modelcontextprotocol.spec.McpSchema;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.actuate.endpoint.invoke.ParameterValueMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.stringtemplate.v4.ST;
@@ -31,7 +30,7 @@ public class PlayDnDMCPPrompt {
     }
 
     @Bean
-    public List<McpServerFeatures.SyncPromptRegistration> loadPrompts(ParameterValueMapper parameterValueMapper) {
+    public List<McpServerFeatures.SyncPromptRegistration> loadPrompts() {
 
         // This is pretty crazy stuff down here...
         // But at least I have a clean, generalized way to build

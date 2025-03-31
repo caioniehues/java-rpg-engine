@@ -8,7 +8,9 @@ import io.cote.chatdm.oracle.OracleTool;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ai.tool.ToolCallback;
+import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.ai.tool.ToolCallbacks;
+import org.springframework.ai.tool.method.MethodToolCallbackProvider;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -33,27 +35,29 @@ public class ChatDmApplication {
     //
 
     @Bean
-    public List<ToolCallback> registerOracles(OracleTool oracleTool) {
-        return List.of(ToolCallbacks.from(oracleTool));
+    public ToolCallbackProvider registerOraclesTool(OracleTool tool) {
+        return MethodToolCallbackProvider.builder().toolObjects(tool).build();
     }
 
     @Bean
-    public List<ToolCallback> registerPlay(PlayDnDTool tool) {
-        return List.of(ToolCallbacks.from(tool));
+    public ToolCallbackProvider registerPlayDndTool(PlayDnDTool tool) {
+        return MethodToolCallbackProvider.builder().toolObjects(tool).build();
     }
 
     @Bean
-    public List<ToolCallback> registerDMJournal(DMJournalTool tool) {
-        return List.of(ToolCallbacks.from(tool));
+    public ToolCallbackProvider registerDMJournalTool(DMJournalTool tool) {
+        return MethodToolCallbackProvider.builder().toolObjects(tool).build();
     }
 
     @Bean
-    public List<ToolCallback> registerDiceRoller(DiceRollerTool tool) {
-        return List.of(ToolCallbacks.from(tool));
+    public ToolCallbackProvider registerDiceRollerTool(DiceRollerTool tool) {
+        return MethodToolCallbackProvider.builder().toolObjects(tool).build();
     }
 
     @Bean
-    public List<ToolCallback> registerDifficultyCheck(DifficultyClassTool tool) {
-        return List.of(ToolCallbacks.from(tool));
+    public ToolCallbackProvider registerDCTool(DifficultyClassTool tool) {
+        return MethodToolCallbackProvider.builder().toolObjects(tool).build();
     }
+
+
 }

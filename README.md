@@ -12,7 +12,7 @@ See notes on running this in [Docker](https://github.com/cote/chatdm/blob/main/d
 
 Currently, there are:
 
-- [Oracles](https://github.com/cote/chatdm/tree/main/src/main/java/io/cote/chatdm/oracle) - these are tool wrappers around [YAML files](https://github.com/cote/chatdm/tree/main/src/main/resources/oracle) that can either be yes/no style solo RPG Oracles or the equivilent or random RPG tables. The Oracle service will find all the oracle YAML files in the classpath and elsewhere and auto-load them up, populating the MCP tool name, description, etc.
+- [Oracles](https://github.com/cote/chatdm/tree/main/src/main/java/io/cote/chatdm/oracle) - these are tool wrappers around [JSON files](https://github.com/cote/chatdm/tree/main/src/main/resources/chatdm-default-files/oracle) that can either be yes/no style solo RPG Oracles or the equivilent or random RPG tables. The Oracle service will find all the oracle YAML files in the classpath and elsewhere and auto-load them up, populating the MCP tool name, description, etc.
 - [DM Journal](https://github.com/cote/chatdm/tree/main/src/main/java/io/cote/chatdm/journal) - this is a tool that write out DM notes to a markdown file and also read them back in. The AI (MCP Client) uses these to keep a lot of things to remember _and_ remember them as needed.
 - [DM setup](https://github.com/cote/chatdm/tree/main/src/main/java/io/cote/chatdm/dnd) - a tool used to iniatlize playing D&D. This is mostly to put in an initial prompt and point out there are other tools to use. 
 - [Dice Roller](https://github.com/cote/chatdm/tree/main/src/main/java/io/cote/chatdm/dice) - Tool to roll dice, backed by [Dice Notation Tools for Java](https://github.com/Bernardo-MG/dice-notation-java).

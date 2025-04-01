@@ -4,6 +4,8 @@ These are for (1) helping me play D&D with AIs (Claude, for now), and (2) to re-
 
 I [play solo D&D with various AIs](https://cote.io/2024/04/09/how-to-use.html), for about two years now. There is a lot of manual work you need to do: meatsack agentic AI. MCP is a nice way to add those tools in and let the AI handle it.
 
+See notes on running this in Docker.
+
 # Tools, etc.
 
 Currently, there are:
@@ -14,45 +16,6 @@ Currently, there are:
 - [Dice Roller](https://github.com/cote/chatdm/tree/main/src/main/java/io/cote/chatdm/dice) - Tool to roll dice, backed by [Dice Notation Tools for Java](https://github.com/Bernardo-MG/dice-notation-java).
 
 (I have not written Java since 2005, so I have no idea what I'm doing with this fancy, new Spring Boot style.)
-
-# Docker Support
-
-You can run ChatDM in a Docker container, which provides an isolated environment with all necessary dependencies. The included Dockerfile uses Eclipse Temurin Java 21 as the base image and sets up the application with its web interface enabled.
-
-## Building and Running with Docker
-
-1. Build the Docker image:
-   ```bash
-   docker build -t chatdm .
-   ```
-
-2. Run the container:
-   ```bash
-   docker run -d -p 8080:8080 chatdm
-   ```
-
-This will start the application and expose it on port 8080.
-
-## Testing the Oracle Endpoints
-
-Once the container is running, you can test the Oracle endpoints using curl or your web browser:
-
-1. List all available oracles:
-   ```bash
-   curl http://localhost:8080/chatdm/api/oracle
-   ```
-
-2. Get information about all oracles:
-   ```bash
-   curl http://localhost:8080/chatdm/api/oracle/info
-   ```
-
-3. Get a random entry from a specific oracle (e.g., NPC_Motivations):
-   ```bash
-   curl http://localhost:8080/chatdm/api/oracle/NPC_Motivations/random
-   ```
-
-The responses will be in JSON format, making it easy to integrate with other tools or scripts.
 
 # DM Journal
 

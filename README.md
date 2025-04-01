@@ -2,6 +2,8 @@ This is a collection of Model Context Controller tools, prompts, etc. for playin
 
 These are for (1) helping me play D&D with AIs (Claude, for now), and (2) to re-learn Java, Spring, Spring AI, and Spring AI MCP. Thus, there are some experiments and gratuitous uses of frameworks. See [the log](https://github.com/cote/chatdm/blob/main/log.md) for my ongoing lab journal and notes.
 
+Check out the [EasyChatDM project](https://github.com/cote/EasyChatDM) for simpler, sep-by-step guide to making MCP tools with Spring AI. There's videos that go along with it to walk you through creating MCP Servers in Java with Spring AI.
+
 I [play solo D&D with various AIs](https://cote.io/2024/04/09/how-to-use.html), for about two years now. There is a lot of manual work you need to do: meatsack agentic AI. MCP is a nice way to add those tools in and let the AI handle it.
 
 See notes on running this in [Docker](https://github.com/cote/chatdm/blob/main/docker.md).
